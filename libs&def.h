@@ -3,9 +3,9 @@
 #include <string.h>
 #include <math.h>
 #include <time.h>
-//#include "jogo.h"
-//#include "pilha.h"
-//#include "baralho.h"
+/*#include "jogo.h"
+#include "pilha.h"
+#include "baralho.h"
 
 
 //Definições do baralho
@@ -19,9 +19,9 @@ typedef struct {
 
 // Estrutura de dados para a pilha
 typedef int Apontador;
-//typedef struct Carta;
+typedef struct Carta;
 
-/*typedef struct {
+typedef struct {
     Carta* baralho;
     Apontador topo;
 } Pilha;

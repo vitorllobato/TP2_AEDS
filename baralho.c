@@ -1,20 +1,20 @@
 #include "baralho.h"
 
-void geraBaralho(int N_baralhos){
+Pilha geraBaralho(int N_baralhos){
     Carta carta;
-    //Pilha baralhoNovo;
-    //criaPilhaVazia(&baralhoNovo);
+    Pilha baralhoNovo;
+    criaPilhaVazia(&baralhoNovo, N_baralhos);
     for(int i=0;i<N_baralhos;i++){
         for (int j=0;j<4;j++){
             for(int k=0;k<13;k++){
                 carta.valor=k+1;
                 carta.naipe=j;
                 geraCarta(carta);
-                //empilha(&baralhoNovo,&carta);
+                empilha(&baralhoNovo, carta);
             }
         }
     }
-    //return baralhoNovo;
+    return baralhoNovo;
 }
 
 void geraCarta(Carta carta){
