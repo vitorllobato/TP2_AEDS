@@ -1,7 +1,7 @@
-#include "baralho.h"
+#include "libs&def.h"
 
 Pilha geraBaralho(int N_baralhos){
-    Carta carta;
+    Carta carta,carta1;
     Pilha baralhoNovo;
     criaPilhaVazia(&baralhoNovo, N_baralhos);
     for(int i=0;i<N_baralhos;i++){
@@ -9,15 +9,15 @@ Pilha geraBaralho(int N_baralhos){
             for(int k=0;k<13;k++){
                 carta.valor=k+1;
                 carta.naipe=j;
-                geraCarta(carta);
-                empilha(&baralhoNovo, carta);
+                carta1 = geraCarta(carta);
+                empilha(&baralhoNovo, carta1);
             }
         }
     }
     return baralhoNovo;
 }
 
-void geraCarta(Carta carta){
+Carta geraCarta(Carta carta){
     switch(carta.valor){
         case 1:
             sprintf(carta.valorc,"A");
@@ -48,5 +48,5 @@ void geraCarta(Carta carta){
             sprintf(carta.naipec,"E");
             break;
         }
-    printf("%s %s\n", carta.valorc,carta.naipec);
+        return carta;
     }

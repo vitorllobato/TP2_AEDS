@@ -1,4 +1,4 @@
-#include "pilha.h"
+#include "libs&def.h"
 
 void criaPilhaVazia(Pilha* pilha,int N_baralhos){
     pilha->topo = -1;
@@ -31,7 +31,8 @@ Carta topoPilha(Pilha* pilha){
         printf("Pilha vazia\n");
         exit(1);
         }
-    
+    printf("%d\n", pilha->topo);
+    printf("%s %s\n", pilha->baralho[pilha->topo].valorc, pilha->baralho[pilha->topo].naipec);
     return pilha->baralho[pilha->topo];
 }
 

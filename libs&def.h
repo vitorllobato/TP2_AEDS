@@ -1,11 +1,10 @@
+#ifndef LIBSDEF_H
+#define LIBSDEF_H
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
 #include <time.h>
-/*#include "jogo.h"
-#include "pilha.h"
-#include "baralho.h"
 
 
 //Definições do baralho
@@ -17,12 +16,27 @@ typedef struct {
 } Carta;
 
 
-// Estrutura de dados para a pilha
+//Definições da pilha
 typedef int Apontador;
-typedef struct Carta;
 
 typedef struct {
     Carta* baralho;
     Apontador topo;
 } Pilha;
-*/
+
+
+
+//Estrutura de dados para o baralho
+Carta geraCarta(Carta carta);
+Pilha geraBaralho(int N_baralhos);
+
+
+//Estrutura de dados para a pilha
+void criaPilhaVazia(Pilha* pilha,int N_baralhos);
+void empilha(Pilha* pilha, Carta carta);
+Carta desempilha(Pilha* pilha);
+int pilhaVazia(Pilha* pilha);
+Carta topoPilha(Pilha* pilha);
+int TamanhoPilha(Pilha pilha);
+
+#endif // LIBSDEF_H
