@@ -3,19 +3,35 @@
 Pilha geraBaralho(int N_baralhos){
     Carta carta,carta1;
     Pilha baralhoNovo;
+    InformacoesJogo jogo;
     criaPilhaVazia(&baralhoNovo, N_baralhos);
+    jogo = leEntrada();
     for(int i=0;i<N_baralhos;i++){
         for (int j=0;j<4;j++){
             for(int k=0;k<13;k++){
-                carta.valor=k+1;
-                carta.naipe=j;
-                carta1 = geraCarta(carta);
-                empilha(&baralhoNovo, carta1);
+                for (int l=0;l<jogo.numExcluidas;l++){
+                    if (k==jogo.excluidas[l]){
+                    qtdCartas=qtdCartas-4;
+                    }
+                else{
+                    carta.valor=k+1;
+                    carta.naipe=j;
+                    carta1 = geraCarta(carta);
+                    empilha(&baralhoNovo, carta1);
+                   }
+                }
             }
         }
     }
     return baralhoNovo;
 }
+
+
+
+
+//void separaCarta(int* cartasFora){
+
+//}
 
 Carta geraCarta(Carta carta){
     switch(carta.valor){

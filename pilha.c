@@ -2,7 +2,7 @@
 
 void criaPilhaVazia(Pilha* pilha,int N_baralhos){
     pilha->topo = -1;
-    pilha->baralho = (Carta*) malloc((N_baralhos*52)*sizeof(Carta));
+    pilha->baralho = (Carta*) malloc((N_baralhos*qtdCartas)*sizeof(Carta));
 }
 
 void empilha(Pilha* pilha, Carta carta){
