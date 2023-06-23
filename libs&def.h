@@ -18,7 +18,9 @@ typedef struct {
 
 //Definições da pilha
 typedef int Apontador;
+
 int qtdCartas=52;
+
 typedef struct {
     Carta* baralho;
     Apontador topo;
@@ -31,14 +33,21 @@ typedef struct {
     int *excluidas;
     int numExcluidas;
     int coringa;
-    int qtdCartas;
+    int qtdmao;
 } InformacoesJogo;
 
 
+
 //Estrutura de dados para o baralho
+int* tamanhoBaralho();
 Carta geraCarta(Carta carta);
 Pilha geraBaralho(int N_baralhos);
+Pilha embaralha(Pilha* pilha, int tamanhoMonte);
+
+//Estrutura de dados para o jogo
 InformacoesJogo leEntrada();
+
+
 
 //Estrutura de dados para a pilha
 void criaPilhaVazia(Pilha* pilha,int N_baralhos);

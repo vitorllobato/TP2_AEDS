@@ -13,15 +13,11 @@ InformacoesJogo leEntrada() {
     char *token;
 
     fscanf(entrada, "%d", &(jogo.N_baralhos));
-    printf("%d\n", jogo.N_baralhos);
     fgetc(entrada);
     fgets(excluidas1, 20, entrada);
     excluidas1[strlen(excluidas1) - 1] = '\0';
-    printf("%s\n", excluidas1);
     fscanf(entrada, "%d", &(jogo.coringa));
-    printf("%d\n", jogo.coringa);
-    fscanf(entrada, "%d", &(jogo.qtdCartas));
-    printf("%d\n", jogo.qtdCartas);
+    fscanf(entrada, "%d", &(jogo.qtdmao));
     fclose(entrada);
 
     token = strtok(excluidas1, ",");
