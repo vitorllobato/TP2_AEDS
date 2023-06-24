@@ -43,7 +43,7 @@ Pilha geraBaralho(int N_baralhos){
                     carta.naipe = k;
                     carta1 = geraCarta(carta);
                     empilha(&baralhoNovo,carta1);
-                    //embaralha(&baralhoNovo, tamanhoMonte);
+                    embaralha(&baralhoNovo, tamanhoMonte);
                 }
             }
         }
