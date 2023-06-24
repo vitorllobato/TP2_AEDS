@@ -100,3 +100,44 @@ Pilha embaralha(Pilha* pilha,int tamanhoMonte){
 
 }
 
+//Lê o arquivo de entrada e descobre qual carta será o coringa.
+Carta criaCartaCoringa(const char* coringa) {
+    Carta carta;
+    
+    switch (coringa[0]) {
+        case 'A':
+            carta.valor = 1;
+            break;
+        case 'J':
+            carta.valor = 11;
+            break;
+        case 'Q':
+            carta.valor = 12;
+            break;
+        case 'K':
+            carta.valor = 13;
+            break;
+        default:
+            if (coringa[0] >= '1' && coringa[0] <= '9') {
+                carta.valor = coringa[0] - '0';
+            }
+            break;
+    }
+    
+    switch (coringa[1]) {
+        case 'P':
+            carta.naipe = 0;
+            break;
+        case 'C':
+            carta.naipe = 1;
+            break;
+        case 'O':
+            carta.naipe = 2;
+            break;
+        case 'E':
+            carta.naipe = 3;
+            break;
+    }
+    
+    return carta;
+}

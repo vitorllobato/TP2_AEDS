@@ -16,7 +16,9 @@ InformacoesJogo leEntrada() {
     fgetc(entrada);
     fgets(excluidas1, 20, entrada);
     excluidas1[strlen(excluidas1) - 1] = '\0';
-    fscanf(entrada, "%d", &(jogo.coringa));
+    fgets(jogo.coringa, 3, entrada);
+    Carta leituraCoringa = criaCartaCoringa(jogo.coringa);
+    jogo.cartaCoringa = geraCarta(leituraCoringa);
     fscanf(entrada, "%d", &(jogo.qtdmao));
     fclose(entrada);
 

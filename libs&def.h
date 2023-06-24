@@ -32,7 +32,9 @@ typedef struct {
     int N_baralhos;
     int *excluidas;
     int numExcluidas;
-    int coringa;
+    char coringa[3];
+    Carta cartaCoringa;
+    Carta cartaCoringaDefinitiva;
     int qtdmao;
 } InformacoesJogo;
 
@@ -43,6 +45,8 @@ int* tamanhoBaralho();
 Carta geraCarta(Carta carta);
 Pilha geraBaralho(int N_baralhos);
 Pilha embaralha(Pilha* pilha, int tamanhoMonte);
+Carta criaCartaCoringa(const char* coringa);
+
 
 //Estrutura de dados para o jogo
 InformacoesJogo leEntrada();
