@@ -24,7 +24,7 @@ int qtdCartas=52;
 typedef struct {
     Carta* baralho;
     Apontador topo;
-
+    int tamanhoPilha;
 } Pilha;
 
 //Definições do jogo
@@ -38,13 +38,18 @@ typedef struct {
     int qtdmao;
 } InformacoesJogo;
 
+typedef struct {
+    Carta *cartas;
+    int numCartas;
+} Mao;
+
 
 
 //Estrutura de dados para o baralho
 int* tamanhoBaralho();
 Carta geraCarta(Carta carta);
 Pilha geraBaralho(int N_baralhos);
-Pilha embaralha(Pilha* pilha, int tamanhoMonte);
+void embaralha(Pilha* pilha, int tamanhoMonte);
 Carta criaCartaCoringa(const char* coringa);
 
 
@@ -60,5 +65,15 @@ Carta desempilha(Pilha* pilha);
 int pilhaVazia(Pilha* pilha);
 Carta topoPilha(Pilha* pilha);
 int TamanhoPilha(Pilha pilha);
+void copiaPilha(Pilha* destino, Pilha* origem);
+
+//Estrutura de dados para ordenação
+void swap(Carta* a, Carta* b);
+int partition(Carta arr[], int low, int high);
+void quickSort(Carta arr[], int low, int high);
+
+void selectionSort(Carta arr[], int n);
+void insertionSort(Carta arr[], int n);
+
 
 #endif // LIBSDEF_H

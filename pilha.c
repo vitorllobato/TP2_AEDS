@@ -3,11 +3,13 @@
 void criaPilhaVazia(Pilha* pilha,int N_baralhos){
     pilha->topo = -1;
     pilha->baralho = (Carta*) malloc((N_baralhos*qtdCartas)*sizeof(Carta));
+    pilha->tamanhoPilha = 0;
 }
 
 void empilha(Pilha* pilha, Carta carta){
     pilha->topo++;
     pilha->baralho[pilha->topo] = carta;
+    pilha->tamanhoPilha++;
 }
 
 Carta desempilha(Pilha* pilha){
@@ -37,3 +39,11 @@ Carta topoPilha(Pilha* pilha){
 }
 
 //int TamanhoPilha(Pilha pilha)
+
+void copiaPilha(Pilha* destino, Pilha* origem) {
+    Apontador atual = origem->topo;
+    while (atual != -1) {
+        empilha(destino, origem->baralho[atual]);
+        atual--;
+    }
+}

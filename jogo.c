@@ -42,3 +42,51 @@ InformacoesJogo leEntrada() {
     return jogo;
 }
 
+//Funções de jogo
+Mao inicializaMao(InformacoesJogo jogo, Pilha *pilha) {
+    Mao mao;
+    mao.numCartas = jogo.qtdmao;
+    mao.cartas = (Carta *)malloc(jogo.qtdmao * sizeof(Carta));
+    for (int i = 0;i<jogo.qtdmao;i++){
+        mao.cartas[i] = compraCarta(pilha);
+        
+    }
+    return mao;
+}
+
+void compraCarta(Pilha *pilha, Mao *mao) {
+    desempilha(pilha);
+    }
+
+void descartaCarta(Pilha *descarte,Pilha *compra Mao *mao, int posicao) {
+    empilha(descarte, mao->cartas[posicao]);
+    mao->cartas[posicao] = compraCarta(compra);
+}
+
+void pegaDescarte(Pilha *descarte, Mao *mao, int posicao) {
+    Carta aux = mao->cartas[posicao];
+    mao->cartas[posicao] = desempilha(descarte);
+    empilha(descarte, aux);
+}
+
+void imprimeMao(Mao mao) {
+    for (int i = 0; i < mao.numCartas; i++) {
+        printf("Posição %d: %s %s",i, mao.cartas[i].valorc, mao.cartas[i].naipec);
+    }
+}
+
+void topoDescarte(Pilha *descarte) {
+    topoPilha(descarte);
+}
+
+int verificaVitoria(Mao mao, InformacoesJogo jogo) {
+    int vitoria = 1;
+    for (int i = 0; i < mao.numCartas; i++) {
+        if (mao.cartas[i].valor != mao.cartas[0].valor) {
+            if(mao.cartas[i].valor != jogo.cartaCoringa.valor || mao.cartas[i].naipe != jogo.cartaCoringa.naipe)
+            vitoria = 0;
+        }
+
+    }
+    return vitoria;
+}

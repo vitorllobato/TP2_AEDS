@@ -27,12 +27,12 @@ int* tamanhoBaralho(){
 Pilha geraBaralho(int N_baralhos){
     Carta carta,carta1;
     Pilha baralhoNovo;
-    InformacoesJogo jogo;
+    //InformacoesJogo jogo;
     int tamanhoMonte = 0;
 
     int *cartasPnaipe = tamanhoBaralho();
     criaPilhaVazia(&baralhoNovo, N_baralhos);
-    jogo = leEntrada();
+    //jogo = leEntrada();
     
     for(int i=0;i<N_baralhos;i++){
         for(int j=0;j<13;j++){
@@ -72,13 +72,13 @@ Carta geraCarta(Carta carta){
     }
     switch(carta.naipe){
         case 0:
-            sprintf(carta.naipec,"P");
-            break;
-        case 1:
             sprintf(carta.naipec,"C");
             break;
-        case 2:
+        case 1:
             sprintf(carta.naipec,"O");
+            break;
+        case 2:
+            sprintf(carta.naipec,"P");
             break;
         case 3:
             sprintf(carta.naipec,"E");
@@ -88,7 +88,7 @@ Carta geraCarta(Carta carta){
     }
 
 //Embaralha a pilha criada com os baralhos.
-Pilha embaralha(Pilha* pilha,int tamanhoMonte){
+void embaralha(Pilha* pilha,int tamanhoMonte){
     srand(time(NULL)); 
     
     for (int i = tamanhoMonte -1; i > 0; i--) {
@@ -97,7 +97,6 @@ Pilha embaralha(Pilha* pilha,int tamanhoMonte){
         pilha->baralho[i] = pilha->baralho[j];
         pilha->baralho[j] = temp;
     }
-
 }
 
 //Lê o arquivo de entrada e descobre qual carta será o coringa.
@@ -125,13 +124,13 @@ Carta criaCartaCoringa(const char* coringa) {
     }
     
     switch (coringa[1]) {
-        case 'P':
+        case 'C':
             carta.naipe = 0;
             break;
-        case 'C':
+        case 'O':
             carta.naipe = 1;
             break;
-        case 'O':
+        case 'P':
             carta.naipe = 2;
             break;
         case 'E':
