@@ -48,19 +48,18 @@ Mao inicializaMao(InformacoesJogo jogo, Pilha *pilha) {
     mao.numCartas = jogo.qtdmao;
     mao.cartas = (Carta *)malloc(jogo.qtdmao * sizeof(Carta));
     for (int i = 0;i<jogo.qtdmao;i++){
-        mao.cartas[i] = compraCarta(pilha);
-        
+        compraCarta(pilha, &mao, i);   
     }
     return mao;
 }
 
-void compraCarta(Pilha *pilha, Mao *mao) {
-    desempilha(pilha);
+void compraCarta(Pilha *pilha, Mao *mao, int posicao) {
+    mao->cartas[posicao] = desempilha(pilha);
     }
 
-void descartaCarta(Pilha *descarte,Pilha *compra Mao *mao, int posicao) {
+void descartaCarta(Pilha *descarte,Pilha *compra, Mao *mao, int posicao) {
     empilha(descarte, mao->cartas[posicao]);
-    mao->cartas[posicao] = compraCarta(compra);
+    compraCarta(compra, mao, posicao);
 }
 
 void pegaDescarte(Pilha *descarte, Mao *mao, int posicao) {
