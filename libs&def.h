@@ -56,8 +56,9 @@ Carta criaCartaCoringa(const char* coringa);
 //Estrutura de dados para o jogo
 InformacoesJogo leEntrada();
 Mao inicializaMao(InformacoesJogo jogo, Pilha *pilha);
-void compraCarta(Pilha *pilha, Mao *mao, int posicao);
-void descartaCarta(Pilha *descarte,Pilha *compra, Mao *mao, int posicao);
+Carta compraCarta(Pilha *pilha, Mao *mao, int posicao);
+void descartaEcompraCarta(Pilha *descarte,Pilha *compra, Mao *mao, int posicao);
+void descartaCarta(Pilha *descarte, Mao *mao, int posicao);
 void pegaDescarte(Pilha *descarte, Mao *mao, int posicao);
 void imprimeMao(Mao mao);
 void topoDescarte(Pilha *descarte);

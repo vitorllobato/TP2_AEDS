@@ -30,8 +30,7 @@ int pilhaVazia(Pilha* pilha){
 
 Carta topoPilha(Pilha* pilha){
     if (pilhaVazia(pilha)) {
-        printf("Pilha vazia\n");
-        exit(1);
+        return;
         }
     printf("%d\n", pilha->topo);
     printf("%s %s\n", pilha->baralho[pilha->topo].valorc, pilha->baralho[pilha->topo].naipec);

@@ -5,21 +5,79 @@
 
 int main(){
     InformacoesJogo jogo = leEntrada();
-    Carta teste;
-    Pilha compra;
-    criaPilhaVazia(&compra, jogo.N_baralhos);
+    Pilha compra, descarte;
     compra = geraBaralho(jogo.N_baralhos);
-    printf("Baralho criado\n");
-    Pilha ordenada;
-    criaPilhaVazia(&ordenada, jogo.N_baralhos);
-    copiaPilha(&ordenada, &compra);
-    printf("Baralho copiado\n");
-    //quickSort(ordenada.baralho, 0, ordenada.tamanhoPilha-1);
-    //insertionSort(ordenada.baralho, ordenada.tamanhoPilha);
-    //selectionSort(ordenada.baralho, ordenada.tamanhoPilha);
-    for(int i=0;i<(ordenada.tamanhoPilha);i++){
-        teste = desempilha(&ordenada);
-        printf("%s %s\n", teste.valorc, teste.naipec);
+    criaPilhaVazia(&descarte, jogo.N_baralhos);
+    printf("Bem vindo ao jogo de Pares!\nO jogo consiste em formar uma mão com cartas de valores iguais ou coringas.\n As ações no jogo são feitas por mumeros no teclado, portanto atenção quando for jogar.\n Boa sorte!\n ");
+    Mao jogador1 = inicializaMao(jogo, &compra);
+    Mao jogador2 = inicializaMao(jogo, &compra);
+    int vez = 1;
+    int vitoria = 0;
+    int jogada;
+    int cartaDescarte;
+
+    while(vitoria != 1){
+        printf("\nJogador %d, sua vez!\n", vez);
+        printf("Carta do topo do descarte: \n");
+        topoDescarte(&descarte);
+        if(vez == 1){
+            vitoria = verificaVitoria(jogador1, jogo);
+            if(vitoria == 1){
+                printf("Jogador 1 venceu!\n");
+                break;
+            }
+            imprimeMao(jogador1);
+            printf("\nDigite 1 para comprar uma carta do baralho, 2 para pegar a carta do topo do descarte.\n");
+            scanf("%d", &jogada);
+            printf("Digite a posição da carta que deseja trocar:\n");
+            scanf("%d", &cartaDescarte);
+            switch (jogada){
+                case 1:
+                    descartaEcompraCarta(&descarte, &compra, &jogador1, cartaDescarte);
+                    break;
+                case 2:
+                    pegaDescarte(&descarte, &jogador1, cartaDescarte);
+                    break;
+                default:
+                    printf("Jogada inválida!\n");
+                    break;
+        }
+        vitoria = verificaVitoria(jogador1, jogo);
+            if(vitoria == 1){
+                printf("Jogador 1 venceu!\n");
+                break;
+            }
+        vez = 2;
+    }
+        else{
+            vitoria = verificaVitoria(jogador2, jogo);
+            if(vitoria == 1){
+                printf("Jogador 2 venceu!\n");
+                break;
+                }
+            imprimeMao(jogador2);
+            printf("\nDigite 1 para comprar uma carta do baralho, 2 para pegar a carta do topo do descarte.\n");
+            scanf("%d", &jogada);
+            printf("Digite a posição da carta que deseja trocar:\n");
+            scanf("%d", &cartaDescarte);
+            switch (jogada){
+                case 1:
+                    descartaEcompraCarta(&descarte, &compra, &jogador2, cartaDescarte);
+                    break;
+                case 2:
+                    pegaDescarte(&descarte, &jogador2, cartaDescarte);
+                    break;
+                default:
+                    printf("Jogada inválida!\n");
+                    break;
+            }
+        vitoria = verificaVitoria(jogador2, jogo);
+            if(vitoria == 1){
+                printf("Jogador 2 venceu!\n");
+                break;
+                }
+        vez = 1;
+        }  
     }
     return 0;
 }

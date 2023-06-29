@@ -53,13 +53,19 @@ Mao inicializaMao(InformacoesJogo jogo, Pilha *pilha) {
     return mao;
 }
 
-void compraCarta(Pilha *pilha, Mao *mao, int posicao) {
+Carta compraCarta(Pilha *pilha, Mao *mao, int posicao) {
     mao->cartas[posicao] = desempilha(pilha);
+    Carta aux = mao->cartas[posicao];
+    return aux;
     }
 
-void descartaCarta(Pilha *descarte,Pilha *compra, Mao *mao, int posicao) {
+void descartaEcompraCarta(Pilha *descarte,Pilha *compra, Mao *mao, int posicao) {
     empilha(descarte, mao->cartas[posicao]);
     compraCarta(compra, mao, posicao);
+}
+
+void descartaCarta(Pilha *descarte, Mao *mao, int posicao) {
+    empilha(descarte, mao->cartas[posicao]);
 }
 
 void pegaDescarte(Pilha *descarte, Mao *mao, int posicao) {
@@ -70,12 +76,16 @@ void pegaDescarte(Pilha *descarte, Mao *mao, int posicao) {
 
 void imprimeMao(Mao mao) {
     for (int i = 0; i < mao.numCartas; i++) {
-        printf("Posição %d: %s %s",i, mao.cartas[i].valorc, mao.cartas[i].naipec);
+        printf("Posição %d: %s %s \n",i, mao.cartas[i].valorc, mao.cartas[i].naipec);
     }
 }
 
 void topoDescarte(Pilha *descarte) {
-    topoPilha(descarte);
+    if(descarte->topo == -1)
+        printf("Descarte vazio\n\n");
+    else
+    printf("%s %s\n\n", descarte->baralho[descarte->topo].valorc, descarte->baralho[descarte->topo].naipec);
+    
 }
 
 int verificaVitoria(Mao mao, InformacoesJogo jogo) {
