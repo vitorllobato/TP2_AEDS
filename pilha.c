@@ -32,7 +32,6 @@ Carta topoPilha(Pilha* pilha){
     if (pilhaVazia(pilha)) {
         return;
         }
-    printf("%d\n", pilha->topo);
     printf("%s %s\n", pilha->baralho[pilha->topo].valorc, pilha->baralho[pilha->topo].naipec);
     return pilha->baralho[pilha->topo];
 }

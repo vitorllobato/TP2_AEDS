@@ -21,21 +21,25 @@ int main(){
         printf("Carta do topo do descarte: \n");
         topoDescarte(&descarte);
         if(vez == 1){
+            imprimeMao(jogador1);
             vitoria = verificaVitoria(jogador1, jogo);
             if(vitoria == 1){
                 printf("Jogador 1 venceu!\n");
                 break;
             }
-            imprimeMao(jogador1);
+            
             printf("\nDigite 1 para comprar uma carta do baralho, 2 para pegar a carta do topo do descarte.\n");
             scanf("%d", &jogada);
             printf("Digite a posição da carta que deseja trocar:\n");
             scanf("%d", &cartaDescarte);
             switch (jogada){
                 case 1:
+                    printf("Carta comprada: ");
+                    topoPilha(&compra);
                     descartaEcompraCarta(&descarte, &compra, &jogador1, cartaDescarte);
                     break;
                 case 2:
+                    
                     pegaDescarte(&descarte, &jogador1, cartaDescarte);
                     break;
                 default:
@@ -50,18 +54,20 @@ int main(){
         vez = 2;
     }
         else{
+            imprimeMao(jogador2);
             vitoria = verificaVitoria(jogador2, jogo);
             if(vitoria == 1){
                 printf("Jogador 2 venceu!\n");
                 break;
                 }
-            imprimeMao(jogador2);
             printf("\nDigite 1 para comprar uma carta do baralho, 2 para pegar a carta do topo do descarte.\n");
             scanf("%d", &jogada);
             printf("Digite a posição da carta que deseja trocar:\n");
             scanf("%d", &cartaDescarte);
             switch (jogada){
                 case 1:
+                    printf("Carta comprada: ");
+                    topoPilha(&compra);
                     descartaEcompraCarta(&descarte, &compra, &jogador2, cartaDescarte);
                     break;
                 case 2:

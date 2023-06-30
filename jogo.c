@@ -95,7 +95,8 @@ int verificaVitoria(Mao mao, InformacoesJogo jogo) {
             if(mao.cartas[i].valor != jogo.cartaCoringa.valor || mao.cartas[i].naipe != jogo.cartaCoringa.naipe)
             vitoria = 0;
         }
-
+        if (mao.cartas[i].valor == jogo.cartaCoringa.valor && mao.cartas[i].naipe == jogo.cartaCoringa.naipe)
+            vitoria = 1;
     }
     return vitoria;
 }

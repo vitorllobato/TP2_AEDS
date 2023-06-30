@@ -43,7 +43,7 @@ Pilha geraBaralho(int N_baralhos){
                     carta.naipe = k;
                     carta1 = geraCarta(carta);
                     empilha(&baralhoNovo,carta1);
-                    printf("%s%s\n",carta1.valorc,carta1.naipec);
+                    //printf("%s%s\n",carta1.valorc,carta1.naipec);
                     embaralha(&baralhoNovo, tamanhoMonte);
                 }
             }
