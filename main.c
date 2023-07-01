@@ -91,7 +91,7 @@ int main(){
                 }  
             }
             break;
-        
+        int cont = 0;
         case 2:
             printf("Baralho desordenado:\n");
             clock_t inicio = clock();
@@ -99,6 +99,18 @@ int main(){
             clock_t fim = clock();
             double tempo_segundos = (double)(fim - inicio) / CLOCKS_PER_SEC;
             printf("Tempo total de execução %.5f \n", tempo_segundos );
+            FILE *arq;
+            arq = fopen("quickSort.txt", "w");
+            
+            for(int i = 0; i < compra.tamanhoPilha; i++){
+                fprintf(arq, "%s %s   ", compra.baralho[i].valorc , compra.baralho[i].naipec);
+                cont++;
+                if(cont == jogo.N_baralhos){
+                    fprintf(arq, "\n");
+                    cont = 0;
+                }
+            }
+            fclose(arq);
             printf("Baralho ordenado:\n");
             break;
 
@@ -109,6 +121,16 @@ int main(){
             fim = clock();
             tempo_segundos = (double)(fim - inicio) / CLOCKS_PER_SEC;
             printf("Tempo total de execução %.5f \n", tempo_segundos );
+            arq = fopen("SelectionSort.txt", "w");
+            for(int i = 0; i < compra.tamanhoPilha; i++){
+                fprintf(arq, "%s %s   ", compra.baralho[i].valorc , compra.baralho[i].naipec);
+                cont++;
+                if(cont == jogo.N_baralhos){
+                    fprintf(arq, "\n");
+                    cont = 0;
+                }
+            }
+            fclose(arq);
             printf("Baralho ordenado:\n");
             break;
 
@@ -119,6 +141,16 @@ int main(){
             fim = clock();
             tempo_segundos = (double)(fim - inicio) / CLOCKS_PER_SEC;
             printf("Tempo total de execução %.5f \n", tempo_segundos );
+            arq = fopen("InsertionSort.txt", "w");
+            for(int i = 0; i < compra.tamanhoPilha; i++){
+                fprintf(arq, "%s %s   ", compra.baralho[i].valorc , compra.baralho[i].naipec);
+                cont++;
+                if(cont == jogo.N_baralhos){
+                    fprintf(arq, "\n");
+                    cont = 0;
+                }
+            }
+            fclose(arq);
             printf("Baralho ordenado:\n");
             break;
     }
