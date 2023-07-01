@@ -98,7 +98,7 @@ int main(){
             quickSort(compra.baralho, 0, compra.tamanhoPilha-1);
             clock_t fim = clock();
             double tempo_segundos = (double)(fim - inicio) / CLOCKS_PER_SEC;
-            printf("Tempo total de execução %.5f ", tempo_segundos );
+            printf("Tempo total de execução %.5f \n", tempo_segundos );
             printf("Baralho ordenado:\n");
             break;
 
@@ -108,7 +108,7 @@ int main(){
             selectionSort(compra.baralho, compra.tamanhoPilha);
             fim = clock();
             tempo_segundos = (double)(fim - inicio) / CLOCKS_PER_SEC;
-            printf("Tempo total de execução %.5f ", tempo_segundos );
+            printf("Tempo total de execução %.5f \n", tempo_segundos );
             printf("Baralho ordenado:\n");
             break;
 
@@ -118,7 +118,7 @@ int main(){
             insertionSort(compra.baralho, compra.tamanhoPilha);
             fim = clock();
             tempo_segundos = (double)(fim - inicio) / CLOCKS_PER_SEC;
-            printf("Tempo total de execução %.5f ", tempo_segundos );
+            printf("Tempo total de execução %.5f \n", tempo_segundos );
             printf("Baralho ordenado:\n");
             break;
     }
